@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="CameraCalibration.cu">
+      <Filter>SMLMUtils</Filter>
+    </CudaCompile>
+    <CudaCompile Include="SpotDetection\GLRTSpotDetector.cu">
+      <Filter>SpotDetection</Filter>
+    </CudaCompile>
+    <CudaCompile Include="SpotDetection\SpotDetector.cu">
+      <Filter>SpotDetection</Filter>
+    </CudaCompile>
+    <CudaCompile Include="PSFModels\PSFImpl.cu">
+      <Filter>PSFModels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CudaUtils.cu">
+      <Filter>Utils</Filter>
+    </CudaCompile>
+    <CudaCompile Include="simflux\SIMFLUX.cu">
+      <Filter>SIMFLUX</Filter>
+    </CudaCompile>
+    <CudaCompile Include="PSFModels\Gaussian\GaussianPSF.cu">
+      <Filter>PSFModels\Gaussian</Filter>
+    </CudaCompile>
+    <CudaCompile Include="PSFModels\simflux\SIMFLUX_PSF.cu">
+      <Filter>PSFModels\SIMFLUX</Filter>
+    </CudaCompile>
+    <CudaCompile Include="ImgFilterQueue.cu">
+      <Filter>Queue</Filter>
+    </CudaCompile>
+    <CudaCompile Include="PSFModels\GLRT_PSF.cu">
+      <Filter>PSFModels</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DebugImageCallback.cpp">
+      <Filter>SMLMUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="StringUtils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="FFT.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="DriftEstimation.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="PSFModels\PSF.cpp">
+      <Filter>PSFModels</Filter>
+    </ClCompile>
+    <ClCompile Include="LocalizationQueue.cpp">
+      <Filter>PSFModels</Filter>
+    </ClCompile>
+    <ClCompile Include="Context.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Rendering.cpp">
+      <Filter>SMLMUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkLocalizations.cpp">
+      <Filter>SMLMUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageProcessor.cpp">
+      <Filter>Queue</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HMM.h" />
+    <ClInclude Include="CameraCalibration.h">
+      <Filter>SMLMUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainerUtils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaUtils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugImageCallback.h">
+      <Filter>SMLMUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="DLLMacros.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="palala.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomDistributions.h">
+      <Filter>SMLMUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="SolveMatrix.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="StringUtils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadUtils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Zernike.h">
+      <Filter>SMLMUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="FFT.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="GetPreciseTime.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadraticFit.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="DriftEstimation.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="PSFModels\PSFImpl.h">
+      <Filter>PSFModels</Filter>
+    </ClInclude>
+    <ClInclude Include="PSFModels\PSF.h">
+      <Filter>PSFModels</Filter>
+    </ClInclude>
+    <ClInclude Include="SpotDetection\GLRTSpotDetector.h">
+      <Filter>SpotDetection</Filter>
+    </ClInclude>
+    <ClInclude Include="SpotDetection\SpotDetector.h">
+      <Filter>SpotDetection</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageFilters.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Estimation.h">
+      <Filter>SMLMUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalizationQueue.h">
+      <Filter>PSFModels</Filter>
+    </ClInclude>
+    <ClInclude Include="MemLeakDebug.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="simflux\SIMFLUX.h">
+      <Filter>SIMFLUX</Filter>
+    </ClInclude>
+    <ClInclude Include="simflux\SIMFLUX_Models.h">
+      <Filter>SIMFLUX</Filter>
+    </ClInclude>
+    <ClInclude Include="PSFModels\Gaussian\GaussianPSF.h">
+      <Filter>PSFModels\Gaussian</Filter>
+    </ClInclude>
+    <ClInclude Include="PSFModels\Gaussian\GaussianPSFModels.h">
+      <Filter>PSFModels\Gaussian</Filter>
+    </ClInclude>
+    <ClInclude Include="simflux\ExcitationModel.h">
+      <Filter>SIMFLUX</Filter>
+    </ClInclude>
+    <ClInclude Include="PSFModels\simflux\SIMFLUX_PSF.h">
+      <Filter>PSFModels\SIMFLUX</Filter>
+    </ClInclude>
+    <ClInclude Include="Context.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgFilterQueue.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgFilterQueueImpl.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="ImagePartitionHelper.h">
+      <Filter>SMLMUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleLocalizationTask.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering.h">
+      <Filter>SMLMUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageProcessor.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{7c356b12-5ce1-4d0a-a852-a39bb062f0d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SMLMUtils">
+      <UniqueIdentifier>{fce2e9c2-5d94-47c5-8d3a-f18da49b1444}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Queue">
+      <UniqueIdentifier>{140704ab-5f56-450b-a2a1-7dd8ef214b29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PSFModels">
+      <UniqueIdentifier>{32ad9b44-904e-4223-809b-0938e0227fd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PSFModels\Gaussian">
+      <UniqueIdentifier>{482ce83b-9693-4658-8368-ce7bb62fedc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PostProcessing">
+      <UniqueIdentifier>{0801061b-f522-4f1d-aa4c-01e07db91126}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpotDetection">
+      <UniqueIdentifier>{db7fc8e9-6ce3-4a1c-820e-91f98e86095d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SIMFLUX">
+      <UniqueIdentifier>{2986d952-5ebb-46d6-8a9e-0531b3934b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PSFModels\SIMFLUX">
+      <UniqueIdentifier>{43984179-92d2-4445-a2a3-5db378fb0815}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="cpp.hint" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,15 @@
+/packages
+/Debug
+/x64
+/.vs
+/external
+SMLMLibDLL/obj/
+SMLMLibTest/x64/
+SMLMLibPythonTest/x64/
+SMLMLibUnitTest/x64/
+TiffViewer/obj/
+*.vcxproj.user
+*.swp
+*.bin
+*.xlsx
+/build

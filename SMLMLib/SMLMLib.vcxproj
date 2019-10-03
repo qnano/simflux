@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E62A6F28-58B6-4089-B46D-748590AD096F}</ProjectGuid>
+    <RootNamespace>libSMLM</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>SMLMLib</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 10.1.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>smlm_cuda</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>smlm_cuda</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>SMLM_EXPORTS;WIN32;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);$(ProjectDir)..\external\cub-1.8.0;$(ProjectDir)/../external/libtiff-4.0.7/include</AdditionalIncludeDirectories>
+      <MinimalRebuild>true</MinimalRebuild>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>cudart.lib;cufft.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)/../external/libtiff-4.0.7/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>
+      </DelayLoadDLLs>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"
+copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <AdditionalOptions>--expt-extended-lambda --expt-relaxed-constexpr %(AdditionalOptions)</AdditionalOptions>
+      <Include>
+      </Include>
+      <CodeGeneration>compute_60,sm_60</CodeGeneration>
+      <AdditionalCompilerOptions>/bigobj</AdditionalCompilerOptions>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>SMLM_EXPORTS;WIN32;WIN64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);$(ProjectDir)/../external/cub-1.8.0;$(ProjectDir)/../external/libtiff-4.0.7/include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>cufft.lib; cudart.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)/../external/libtiff-4.0.7/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>
+      </DelayLoadDLLs>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"
+copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <AdditionalOptions>--expt-extended-lambda --expt-relaxed-constexpr %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalCompilerOptions>/MP</AdditionalCompilerOptions>
+      <CodeGeneration>compute_30,sm_30;compute_60,sm_60</CodeGeneration>
+    </CudaCompile>
+    <CudaLink>
+      <Optimization>O3</Optimization>
+    </CudaLink>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="FFT.cpp" />
+    <ClCompile Include="ImageProcessor.cpp" />
+    <ClCompile Include="LinkLocalizations.cpp" />
+    <ClCompile Include="Rendering.cpp" />
+    <CudaCompile Include="CudaUtils.cu" />
+    <CudaCompile Include="ImgFilterQueue.cu" />
+    <CudaCompile Include="PSFModels\Gaussian\GaussianPSF.cu" />
+    <CudaCompile Include="PSFModels\GLRT_PSF.cu" />
+    <CudaCompile Include="PSFModels\PSFImpl.cu" />
+    <CudaCompile Include="PSFModels\simflux\SIMFLUX_PSF.cu" />
+    <CudaCompile Include="simflux\SIMFLUX.cu" />
+    <CudaCompile Include="SpotDetection\GLRTSpotDetector.cu" />
+    <CudaCompile Include="SpotDetection\SpotDetector.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DebugImageCallback.cpp" />
+    <CudaCompile Include="CameraCalibration.cu">
+      <FileType>CppCode</FileType>
+    </CudaCompile>
+    <ClCompile Include="DriftEstimation.cpp" />
+    <ClCompile Include="LocalizationQueue.cpp" />
+    <ClCompile Include="PSFModels\PSF.cpp" />
+    <ClCompile Include="Context.cpp" />
+    <ClCompile Include="StringUtils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CameraCalibration.h" />
+    <ClInclude Include="Context.h" />
+    <ClInclude Include="DebugImageCallback.h" />
+    <ClInclude Include="Estimation.h" />
+    <ClInclude Include="FFT.h" />
+    <ClInclude Include="GetPreciseTime.h" />
+    <ClInclude Include="HMM.h" />
+    <ClInclude Include="ImageFilters.h" />
+    <ClInclude Include="ContainerUtils.h" />
+    <ClInclude Include="CudaUtils.h" />
+    <ClInclude Include="DLLMacros.h" />
+    <ClInclude Include="ImagePartitionHelper.h" />
+    <ClInclude Include="ImageProcessor.h" />
+    <ClInclude Include="ImgFilterQueueImpl.h" />
+    <ClInclude Include="LocalizationQueue.h" />
+    <ClInclude Include="MemLeakDebug.h" />
+    <ClInclude Include="DriftEstimation.h" />
+    <ClInclude Include="ImgFilterQueue.h" />
+    <ClInclude Include="PSFModels\Gaussian\GaussianPSF.h" />
+    <ClInclude Include="PSFModels\Gaussian\GaussianPSFModels.h" />
+    <ClInclude Include="PSFModels\PSFImpl.h" />
+    <ClInclude Include="PSFModels\PSF.h" />
+    <ClInclude Include="PSFModels\simflux\SIMFLUX_PSF.h" />
+    <ClInclude Include="QuadraticFit.h" />
+    <ClInclude Include="RandomDistributions.h" />
+    <ClInclude Include="MathUtils.h" />
+    <ClInclude Include="palala.h" />
+    <ClInclude Include="Rendering.h" />
+    <ClInclude Include="simflux\ExcitationModel.h" />
+    <ClInclude Include="simflux\SIMFLUX.h" />
+    <ClInclude Include="simflux\SIMFLUX_Models.h" />
+    <ClInclude Include="SimpleLocalizationTask.h" />
+    <ClInclude Include="SolveMatrix.h" />
+    <ClInclude Include="SpotDetection\GLRTSpotDetector.h" />
+    <ClInclude Include="SpotDetection\SpotDetector.h" />
+    <ClInclude Include="StringUtils.h" />
+    <ClInclude Include="ThreadUtils.h" />
+    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Zernike.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Eigen.3.3.3\build\native\Eigen.targets" Condition="Exists('..\packages\Eigen.3.3.3\build\native\Eigen.targets')" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 10.1.targets" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Eigen.3.3.3\build\native\Eigen.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Eigen.3.3.3\build\native\Eigen.targets'))" />
+  </Target>
+</Project>

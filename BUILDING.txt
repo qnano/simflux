@@ -1,0 +1,25 @@
+
+BUILDING
+----------------------------------------------------------------------------
+
+(The order is important here)
+- Install Visual studio 2017 Community Edition: https://visualstudio.microsoft.com/downloads/
+- Open visual studio. Menu "Tools / Get Tools and Features"
+- Install the Visual studio 2015 build toolset
+
+- Install CUDA Toolkit 10.1 https://developer.nvidia.com/cuda-downloads
+If you install this before visual studio 2017 and the 2015 toolset, you need to reinstall it to make sure the CUDA BuildCustomizations are installed.
+
+- Download the external libraries below and extract in the root. There should be a folder "external" in the repository root.
+https://drive.google.com/open?id=1E7f7xqNLwqtj4_-2bjJ56T6kbzsdCpDQ
+
+- In visual studio, open the smlm.sln. 
+- Set the build to release mode, and build SMLMLibTest. This will also build the main library (SMLMLib)
+- The final dll is smlm_cuda.dll, which will be in x64/Release or x64/Debug
+
+- For the python part, Anaconda 3 is recommended. Make sure to get python >= 3.6 on 64 bit.
+https://repo.anaconda.com/archive/Anaconda3-2019.07-Windows-x86_64.exe
+
+
+Notes:
+CUDA 10.1 and Visual Studio 2017 builds are incompatible currently due what seems like a CUDA compiler bug, so we're using the Visual Studio 2015 build mode of 2017 to build the library. 
