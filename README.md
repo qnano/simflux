@@ -9,10 +9,10 @@ If the binary is already there, you only need to install python and some python 
 Make sure to get python >= 3.6 on 64 bit:
 https://repo.anaconda.com/archive/Anaconda3-2019.07-Windows-x86_64.exe
 
-conda create -n simflux_env anaconda
-conda activate simflux_env
-conda install tqdm matplotlib scikit-image pyyaml scikit-image scikit-learn h5py
-pip install tifffile
+conda create -n simflux_env anaconda\ 
+conda activate simflux_env\ 
+conda install tqdm matplotlib scikit-image pyyaml scikit-image scikit-learn h5py\ 
+pip install tifffile\ 
 
 
 ## Building C++ / CUDA library
