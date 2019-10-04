@@ -213,10 +213,11 @@ def tiff_to_rois(path, num_patterns, cfg, debugMode):
 #        r.Filter(np.where( (crlb[:,0]+crlb[:,1])<3 )[0])
 
         r.Filter(np.where(r.iterations<80)[0])
-        
-        plt.figure()
-        plt.hist(r.iterations)
-        plt.title('2D Gaussian iterations')
+
+        if False:        
+            plt.figure()
+            plt.hist(r.iterations)
+            plt.title('2D Gaussian iterations')
 
         r.rois = r.diagnostics.reshape((len(r.ids),*psf.samplesize))
         nframes =  np.max(r.ids)+1 if len(r.ids)>0 else 1
@@ -440,7 +441,7 @@ def process(path, cfg, pattern_frames, pixelsize,
         print_mod(report, mod, pattern_frames, pixelsize)
 
         moderrs = spotlist.compute_modulation_error(mod, spotfilter)
-        spotlist.plot_moderr_vs_intensity(mod, spotfilter)
+#        spotlist.plot_moderr_vs_intensity(mod, spotfilter)
         errs = spotlist.compute_modulation_chisq(mod, pattern_frames, spotfilter, plot=False)#, frames=np.arange(fr))
         report(f"Modulation qualities per axis:")
         for k in range(len(pattern_frames)):
@@ -450,12 +451,12 @@ def process(path, cfg, pattern_frames, pixelsize,
         
         report(f"RMS moderror: {np.sqrt(np.mean(moderrs**2)):.3f}")
 
-        spotlist.plot_modulation_chisq_timebins(mod, pattern_frames, spotfilter, 50)        
+#        spotlist.plot_modulation_chisq_timebins(mod, pattern_frames, spotfilter, 50)        
 
         if len(pattern_frames)==2: # assume XY modulation
             draw_mod(mod, False, resultprefix + "patterns.png")
 
-        spotlist.silm_bias_plot2D(mod, smlm, spotfilter, tag='')
+ #       spotlist.silm_bias_plot2D(mod, smlm, spotfilter, tag='')
 #        spotlist.plot_intensity_variations(mod, minfilter, pattern_frames)
 
         if plot_ffts:
