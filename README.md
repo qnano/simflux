@@ -40,7 +40,7 @@ cd python
 python simflux_example.py
 ```
 
-The results will be in a folder named "results/<dataset>", with various plots and localization files.
+The results will be in a folder named "results/object_wlc_15", with various plots and localization files.
 
 - simflux.hdf5 - SIMFLUX localizations
 - g2d.hdf5 - Conventional SMLM localizations
@@ -49,5 +49,6 @@ Linked localizations (Localizations in subsequent frames merged into one more ac
 - simflux-linked.hdf5 - SIMFLUX localizations
 - g2d-linked.hdf5 - Conventional SMLM localizations
 
-These HDF5 files are compatible with the [Picasso render application](https://github.com/jungmannlab/picasso) for viewing.
+These HDF5 files are compatible with the [Picasso render application](https://github.com/jungmannlab/picasso) for viewing:
+![](http://homepage.tudelft.nl/f04a3/simflux.png)
 
