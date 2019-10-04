@@ -17,19 +17,19 @@ pip install tifffile
 
 ## Building C++ / CUDA library
 
-Install CUDA Toolkit 10.1 or higher:
-https://developer.nvidia.com/cuda-downloads.
-
 (The order is important here)
-- Install Visual studio 2017 Community Edition: https://visualstudio.microsoft.com/downloads/
+- Install Visual studio 2017 or 2019 Community Edition: https://visualstudio.microsoft.com/downloads/
 - Open visual studio. Menu "Tools / Get Tools and Features"
-- Install the Visual studio 2015 build toolset
+- Install the Visual studio 2015 build toolset. We're using the Visual Studio 2015 build tools because we ran into cuda compiler issues at 2017.
 
 - Install CUDA Toolkit 10.1 https://developer.nvidia.com/cuda-downloads
 If you install this before visual studio 2017 and the 2015 toolset, you need to reinstall it to make sure the CUDA BuildCustomizations are installed.
 
 - Download the external libraries below and extract in the root. There should be a folder "external" in the repository root.
 https://drive.google.com/open?id=1E7f7xqNLwqtj4_-2bjJ56T6kbzsdCpDQ
+
+- Open the SMLM.sln solution file. Don't upgrade the projects.
+- Some nuget packages will have to be downloaded. 
 
 
 ## Testing
