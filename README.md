@@ -11,7 +11,7 @@ https://repo.anaconda.com/archive/Anaconda3-2019.07-Windows-x86_64.exe
 
 conda create -n simflux_env anaconda
 conda activate simflux_env
-conda install tqdm matplotlib scikit-image pyyaml
+conda install tqdm matplotlib scikit-image pyyaml scikit-image scikit-learn h5py
 pip install tifffile
 
 
