@@ -1,7 +1,6 @@
 # SIMFLUX Readme
 
-SIMFLUX is implemented using C++/CUDA 10.1 and Python, running on Windows 10. A version with the binary already build can be found here:
-TODO: insert link
+SIMFLUX is implemented using C++/CUDA 10.1 and Python, running on Windows 10. A version with the binary already build can be found [here](http://homepage.tudelft.nl/f04a3/simflux-publication-release)
 
 ## Installing python
 
