@@ -1,42 +1,45 @@
-README
-----------------------------------------------------------------------------
-This readme shows how to process a TIFF file using SIMFLUX
+# SIMFLUX Readme
 
-Step 1. Download and install Anaconda for Windows 64 bit
-https://www.anaconda.com/distribution/
-https://repo.anaconda.com/archive/Anaconda3-2018.12-Windows-x86_64.exe
+SIMFLUX is implemented using C++/CUDA 10.1 and Python, running on Windows 10. A version with the binary already build can be found here:
+TODO: insert link
 
-Step 3. Install CUDA Toolkit 9.2 or higher:
+## Installing python
+
+If the binary is already there, you only need to install python and some python packages. It is recommended to use anaconda 3
+Make sure to get python >= 3.6 on 64 bit:
+https://repo.anaconda.com/archive/Anaconda3-2019.07-Windows-x86_64.exe
+
+conda create -n simflux_env anaconda
+conda activate simflux_env
+conda install tqdm matplotlib scikit-image pyyaml
+pip install tifffile
+
+
+## Building C++ / CUDA library
+
+Install CUDA Toolkit 10.1 or higher:
 https://developer.nvidia.com/cuda-downloads.
 
-Step 2.
-Create a virtual environment for simflux:
-You should have an "Anaconda Prompt" somewhere in the windows apps now.
-Open this anaconda prompt and run the following to create an anaconda environment named simflux:
-conda create -n simflux anaconda
-conda activate simflux
+(The order is important here)
+- Install Visual studio 2017 Community Edition: https://visualstudio.microsoft.com/downloads/
+- Open visual studio. Menu "Tools / Get Tools and Features"
+- Install the Visual studio 2015 build toolset
 
-Step 4.
-Using the open anaconda prompt, install python and anaconda packages:
-conda install -c anaconda cudatoolkit 
-pip install scipy matplotlib numpy tifffile tqdm
+- Install CUDA Toolkit 10.1 https://developer.nvidia.com/cuda-downloads
+If you install this before visual studio 2017 and the 2015 toolset, you need to reinstall it to make sure the CUDA BuildCustomizations are installed.
 
-Step 5. 
-Using the anaconda prompt, go to the SIMFLUX directory where simflux.py is located.
+- Download the external libraries below and extract in the root. There should be a folder "external" in the repository root.
+https://drive.google.com/open?id=1E7f7xqNLwqtj4_-2bjJ56T6kbzsdCpDQ
 
-Step 6. 
-Run SIMFLUX. Passing no arguments will show the help:
-python simflux.py
 
-The example dataset can be processed with the following: 
-python simflux.py data/80nm-15fps-example.tif --sigma 1.83 --gain 2.2 --offset 100 --threshold 20
+## Testing
 
-Step 7.
-The results will be stored in {input directory}/results/{tif name}/*.
-The HDF5 files contain localizations that can be opened in Picasso Render (https://github.com/jungmannlab/picasso)
+python/simflux_example.py can be used as a basic test and example of how to run the code. It will automatically download some sample data of around 200MB.
 
-Each result directory contains:
+Each contains:
 simflux.hdf5 - SIMFLUX localizations
 g2d.hdf5 - Conventional SMLM localizations
+
+
 
 
