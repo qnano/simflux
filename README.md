@@ -17,9 +17,8 @@ pip install tifffile
 
 ## Building C++ / CUDA library
 
-Step 3. Install CUDA Toolkit 10.1 or higher:
+Install CUDA Toolkit 10.1 or higher:
 https://developer.nvidia.com/cuda-downloads.
-
 
 (The order is important here)
 - Install Visual studio 2017 Community Edition: https://visualstudio.microsoft.com/downloads/
