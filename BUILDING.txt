@@ -10,7 +10,7 @@ BUILDING
 - Install CUDA Toolkit 10.1 https://developer.nvidia.com/cuda-downloads
 If you install this before visual studio 2017 and the 2015 toolset, you need to reinstall it to make sure the CUDA BuildCustomizations are installed.
 
-- Download the external libraries below and extract in the root. There should be a folder "external" in the repository root.
+- Extract the external.zip in the root. There should be a folder named "external" in the repository root.
 https://drive.google.com/open?id=1E7f7xqNLwqtj4_-2bjJ56T6kbzsdCpDQ
 
 - In visual studio, open the smlm.sln. 
